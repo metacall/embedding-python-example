@@ -22,7 +22,7 @@ cmake_minimum_required(VERSION 2.8)
 project(metacall_embedding_python_example)
 
 # Include MetaCall library as a dependency
-set(METACALL_VERSION 0.1.54)
+set(METACALL_VERSION 0.1.56)
 
 include(ExternalProject)
 
