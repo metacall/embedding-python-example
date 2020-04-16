@@ -34,7 +34,8 @@ RUN apt-get update \
 		cmake \
 		ca-certificates \
 		git \
-		python3
+		python3 \
+		python3-dev
 
 # Set working directory to home
 WORKDIR /root
@@ -50,5 +51,5 @@ RUN git clone https://github.com/metacall/embedding-python-example.git \
 
 # Run the executable
 RUN export LOADER_LIBRARY_PATH="/usr/local/lib" \
-	&& export LOADER_SCRIPT_PATH="`pwd`" \
+	&& export LOADER_SCRIPT_PATH="`pwd`/embedding-python-example" \
 	&& embedding_python_example
