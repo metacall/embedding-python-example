@@ -2,6 +2,14 @@
 
 This example shows how to embed Python into C/C++ source code. The instructions are focused on Linux but it can be ported to other platforms easily.
 
+## Dependencies
+
+For building this example you need Python 3 to be installed in the system (including the dev dependencies). For debian based distros:
+
+```bash
+sudo apt-get install -y --no-install-recommends python3 python3-dev
+```
+
 ## Build
 
 Build the project, MetaCall dependency may require root permissions in order to be installed in the system.
