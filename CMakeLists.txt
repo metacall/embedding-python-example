@@ -49,5 +49,7 @@ add_executable(embedding_python_example main.c)
 
 target_link_libraries(embedding_python_example libmetacall)
 
+target_include_directories(embedding_python_example PUBLIC ${CMAKE_INSTALL_PREFIX}/include)
+
 # Install main target
 install(TARGETS embedding_python_example DESTINATION bin)
