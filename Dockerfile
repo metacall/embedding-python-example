@@ -49,7 +49,12 @@ RUN git clone https://github.com/metacall/embedding-python-example.git \
 	&& cmake .. \
 	&& cmake --build . --target install
 
-# Run the executable
-RUN export LOADER_LIBRARY_PATH="/usr/local/lib" \
-	&& export LOADER_SCRIPT_PATH="`pwd`/embedding-python-example" \
-	&& embedding_python_example
+# Env vars for MetaCall
+ENV LOADER_LIBRARY_PATH="/usr/local/lib" \
+	LOADER_SCRIPT_PATH="/root/embedding-python-example"
+
+# Run the executable (testing)
+RUN embedding_python_example
+
+# Set up the entry point
+CMD [ "embedding_python_example" ]

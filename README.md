@@ -37,5 +37,5 @@ Building and running with Docker:
 
 ```bash
 docker build --build-arg DISABLE_CACHE=`date +%s` -t metacall/embedding-python-example .
-docker run --rm -it metacall/embedding-python-example embedding_python_example
+docker run --rm -it metacall/embedding-python-example
 ```
