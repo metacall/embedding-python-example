@@ -28,7 +28,7 @@ From project root directory, run the following commands:
 ```bash
 export LOADER_LIBRARY_PATH="/usr/local/lib"
 export LOADER_SCRIPT_PATH="`pwd`"
-embedding-python-example
+embedding_python_example
 ```
 
 ## Docker
@@ -37,5 +37,5 @@ Building and running with Docker:
 
 ```bash
 docker build --build-arg DISABLE_CACHE=`date +%s` -t metacall/embedding-python-example .
-docker run --rm -it metacall/embedding-python-example
+docker run --rm -it metacall/embedding_python_example
 ```
