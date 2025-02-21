@@ -26,9 +26,9 @@ jobs:
       run: |
         export LOADER_LIBRARY_PATH="/usr/local/lib"
         export LOADER_SCRIPT_PATH="`pwd`"
-        ./build/embedding-python-example
+        ./build/embedding_python_example
 
     - name: Test Docker Build
       run: |
-        docker build --build-arg DISABLE_CACHE=`date +%s` -t metacall/embedding-python-example .
-        docker run --rm metacall/embedding-python-example
+        docker build --build-arg DISABLE_CACHE=`date +%s` -t metacall/embedding_python_example .
+        docker run --rm metacall/embedding_python_example
