@@ -2,11 +2,7 @@ name: CI Linux Build and Test
 
 on:
   push:
-    branches:
-      - master
   pull_request:
-    branches:
-      - master
 
 jobs:
   build-and-test:
@@ -14,12 +10,7 @@ jobs:
 
     steps:
     - name: Checkout Code
-      uses: actions/checkout@v3
-
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.x'
+      uses: actions/checkout@v4
 
     - name: Install System Dependencies
       run: sudo apt-get update && sudo apt-get install -y --no-install-recommends python3 python3-dev cmake g++ make
@@ -35,9 +26,9 @@ jobs:
       run: |
         export LOADER_LIBRARY_PATH="/usr/local/lib"
         export LOADER_SCRIPT_PATH="`pwd`"
-        ./build/embedding_python_example
+        ./build/embedding-python-example
 
     - name: Test Docker Build
       run: |
         docker build --build-arg DISABLE_CACHE=`date +%s` -t metacall/embedding-python-example .
-        docker run --rm metacall/embedding_python_example
+        docker run --rm metacall/embedding-python-example
