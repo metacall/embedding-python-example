@@ -1,0 +1,34 @@
+name: CI Linux Build and Test
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    - name: Install System Dependencies
+      run: sudo apt-get update && sudo apt-get install -y --no-install-recommends python3 python3-dev cmake g++ make
+
+    - name: Build with CMake
+      run: |
+        mkdir -p build
+        cd build
+        cmake ..
+        sudo cmake --build . --target install
+
+    - name: Run Application
+      run: |
+        export LOADER_LIBRARY_PATH="/usr/local/lib"
+        export LOADER_SCRIPT_PATH="`pwd`"
+        ./build/embedding-python-example
+
+    - name: Test Docker Build
+      run: |
+        docker build --build-arg DISABLE_CACHE=`date +%s` -t metacall/embedding-python-example .
+        docker run --rm metacall/embedding-python-example
