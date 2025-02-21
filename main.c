@@ -67,7 +67,7 @@ int main(int argc, char *argv[])
 {
 	struct metacall_log_stdio_type log_stdio = { stdout };
 
-	printf(metacall_print_info());
+	printf("%s\n", metacall_print_info());
 
 	// Define log stream
 	if (metacall_log(METACALL_LOG_STDIO, (void *)&log_stdio) != 0)
